@@ -1,4 +1,5 @@
 
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -44,7 +45,12 @@ history = model.fit(
     verbose=2
 )
 
-# ==== Lưu model ====
-model.save('src/models/lstm/cicddos_lstm_model.h5')
-joblib.dump(PROCESSED_FEATURES, 'cicddos_features.joblib')
+# Lưu model ra thư mục models/lstm/
+model_save_dir = "D:/models/lstm"
+os.makedirs(model_save_dir, exist_ok=True)
+model_save_file = os.path.join(model_save_dir, "cicddos_lstm_model.h5")
+model.save(model_save_file)
+
+features_save_file = os.path.join(model_save_dir, "cicddos_features.joblib")
+joblib.dump(PROCESSED_FEATURES, features_save_file)
 print("Training completed and model is saved. Ready for testing phase after this.")
