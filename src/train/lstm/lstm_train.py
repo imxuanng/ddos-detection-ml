@@ -1,4 +1,5 @@
 
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -47,6 +48,7 @@ history = model.fit(
     callbacks=[es],
     verbose=2
 )
+
 
 # ==== Lưu model ====
 model.save(ROOT_PATH +'models/lstm/cicddos_lstm_model.h5')
