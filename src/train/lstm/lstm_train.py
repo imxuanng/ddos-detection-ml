@@ -11,9 +11,9 @@ from tensorflow.keras.callbacks import EarlyStopping
 from src.constant import (
     PROCESSED_FEATURES,
     PROCESSED_OUTPUTS_TRAIN,
+    ROOT_PATH
 )
 from src.utils.io import (
-    read_csv_safe,
     read_multi_csv,    
 )
 
@@ -25,6 +25,10 @@ df_train = df_train[PROCESSED_FEATURES]
 X_train = df_train.drop('label', axis=1).values
 y_train = df_train['label'].values
 X_train_lstm = X_train.reshape((X_train.shape[0], 1, X_train.shape[1]))
+
+for i in range(3):
+    print(f"X_train_lstm sample {i}: {X_train_lstm[i]}")
+    print(f"y_train sample {i}: {y_train[i]}")
 
 # ==== Xây dựng và train LSTM ====
 model = Sequential()
@@ -45,6 +49,6 @@ history = model.fit(
 )
 
 # ==== Lưu model ====
-model.save('src/models/lstm/cicddos_lstm_model.h5')
+model.save(ROOT_PATH +'models/lstm/cicddos_lstm_model.h5')
 joblib.dump(PROCESSED_FEATURES, 'cicddos_features.joblib')
 print("Training completed and model is saved. Ready for testing phase after this.")

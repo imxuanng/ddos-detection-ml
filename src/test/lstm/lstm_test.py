@@ -43,7 +43,7 @@
 import pandas as pd
 import numpy as np
 from tensorflow.keras.models import load_model
-from src.constant import PROCESSED_OUTPUTS_TEST, PROCESSED_FEATURES
+from src.constant import PROCESSED_OUTPUTS_TEST, PROCESSED_FEATURES, ROOT_PATH
 from src.utils.io import read_multi_csv
 from src.utils.visualization import show_confusion_matrix
 
@@ -58,7 +58,7 @@ y_test = df_test['label'].values
 X_test_lstm = X_test.reshape((X_test.shape[0], 1, X_test.shape[1]))
 
 # === Load mô hình đã train ===
-model_path = 'src/models/lstm/cicddos_lstm_model.h5'
+model_path = ROOT_PATH + "models/lstm/cicddos_lstm_model.h5"
 model = load_model(model_path)
 
 # === Dự đoán ===
