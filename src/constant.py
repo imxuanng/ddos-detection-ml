@@ -144,20 +144,24 @@ PROCESSED_FEATURES: List[str] = [
     'label'
 ]
 
+ROOT_PATH: str = "D:/docs/semeters/20251/project/code/"
+
 RAW_DATA_FILES: List[str] = [
-    "D:/DOCUMENTS/SEMESTER/20251/Đồ án tốt nghiệp/CODE/data/raw/cicddos2019/drdos_dns.csv",
-    "D:/DOCUMENTS/SEMESTER/20251/Đồ án tốt nghiệp/CODE/data/raw/cicddos2019/drdos_udp.csv",
+    ROOT_PATH + "data/raw/cicddos2019/drdos_dns.csv",
+    ROOT_PATH + "data/raw/cicddos2019/drdos_udp.csv",
 ]
 
 PROCESSED_OUTPUTS_TRAIN: List[str] = [
-    "D:/DOCUMENTS/SEMESTER/20251/Đồ án tốt nghiệp/CODE/data/processed/train/cicddos2019/drdos_dns_training.csv",
-    "D:/DOCUMENTS/SEMESTER/20251/Đồ án tốt nghiệp/CODE/data/processed/train/cicddos2019/drdos_udp_training.csv"
+    ROOT_PATH + "data/processed/train/cicddos2019/drdos_dns_training.csv",
+    ROOT_PATH + "data/processed/train/cicddos2019/drdos_udp_training.csv"
 ]
 
 PROCESSED_OUTPUTS_TEST: List[str] = [
-    "D:/DOCUMENTS/SEMESTER/20251/Đồ án tốt nghiệp/CODE/data/processed/test/cicddos2019/drdos_dns_testing.csv",
-    "D:/DOCUMENTS/SEMESTER/20251/Đồ án tốt nghiệp/CODE/data/processed/test/cicddos2019/drdos_udp_testing.csv"
+    ROOT_PATH + "data/processed/test/cicddos2019/drdos_dns_testing.csv",
+    ROOT_PATH + "data/processed/test/cicddos2019/drdos_udp_testing.csv"
 ]
+
+MODEL_OUTPUT_PATH: str = ROOT_PATH + "models/"
 
 NORMALIZATION_METHODS: List[str] = [
     "minmax",       # Min-Max Scaling: Đưa dữ liệu về [0, 1]
