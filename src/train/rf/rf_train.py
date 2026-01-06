@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from src.constant import (
     PROCESSED_FEATURES,
     PROCESSED_OUTPUTS_TRAIN,
+    ROOT_PATH
 )
 from src.utils.io import read_multi_csv
 
@@ -28,13 +29,12 @@ rf_model = RandomForestClassifier(
 rf_model.fit(X_train, y_train)
 
 # Lưu model ra thư mục models/rf/
-model_save_dir = "D:/models/rf"
+model_save_dir = ROOT_PATH + "models/rf/"
 os.makedirs(model_save_dir, exist_ok=True)
 model_save_file = os.path.join(model_save_dir, "cicddos_rf_model.joblib")
 joblib.dump(rf_model, model_save_file)
 
 # Lưu lại danh sách feature
 joblib.dump(PROCESSED_FEATURES, os.path.join(model_save_dir, "cicddos_features.joblib"))
-
 
 print("Training completed and model is saved. Ready for testing phase after this.")
