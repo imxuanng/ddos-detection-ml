@@ -19,4 +19,3 @@ y_pred = rf_model.predict(X_test)
 
 # === Đánh giá trực quan & in báo cáo ===
 show_confusion_matrix(y_test, y_pred, class_names=["Benign", "Attack"])
-
